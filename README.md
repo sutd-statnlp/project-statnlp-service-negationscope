@@ -3,8 +3,8 @@
 [![codecov](https://codecov.io/gh/sutd-statnlp/service-negationscope/branch/master/graph/badge.svg)](https://codecov.io/gh/sutd-statnlp/service-negationscope)
 [![](https://sonarcloud.io/api/project_badges/measure?project=org.statnlp.services%3Aservice-negationscope&metric=alert_status)](https://sonarcloud.io/dashboard?id=org.statnlp.services%3Aservice-negationscope)
 [![](https://sonarcloud.io/api/project_badges/measure?project=org.statnlp.services%3Aservice-negationscope&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=org.statnlp.services%3Aservice-negationscope)
-[![](https://images.microbadger.com/badges/image/sutd-statnlp/service-negationscope.svg)](https://microbadger.com/images/sutd-statnlp/service-negationscope)
-[![JavaDoc](https://img.shields.io/badge/javadoc-API-blue.svg)](https://service-negationscope.statnlp.org/apidocs/)
+[![](https://images.microbadger.com/badges/image/statnlp/service-negationscope.svg)](https://microbadger.com/images/statnlp/service-negationscope)
+[![JavaDoc](https://img.shields.io/badge/javadoc-API-blue.svg)](http://service-negationscope.statnlp.org/apidocs/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/sutd-statnlp/service-negationscope/blob/master/LICENSE)
 ## Features
 - REST API and Swagger UI
