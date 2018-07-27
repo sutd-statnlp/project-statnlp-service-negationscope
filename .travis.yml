@@ -39,7 +39,7 @@ after_success:
 
 before_deploy:
   - ./mvnw javadoc:javadoc
-  - cp -a site/. target/site/
+  - cp -a src/main/resources/static/. target/site/
 
 deploy:
   local-dir: target/site
