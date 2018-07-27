@@ -1,0 +1,12 @@
+info:
+  name: service-negationscope
+  version: 0.0.0
+  description: Negation Scope Service
+  documentation: https://github.com/sutd-statnlp/service-negationscope
+server:
+  port: 8000
+management:
+  security:
+    enabled: false
+
+
