@@ -17,7 +17,7 @@ public class WebConfigTest {
     private WebConfig webConfig;
 
     @Test
-    public void testGetSamplesInteractor() {
+    public void testWebConfig() {
         assertNotNull(webConfig);
     }
 
