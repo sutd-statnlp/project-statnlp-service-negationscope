@@ -4,6 +4,20 @@ info:
     description: Negation Scope Service
     documentation: https://github.com/sutd-statnlp/service-negationscope
 
+logging:
+    level:
+        ROOT: DEBUG
+        org.statnlp.services: DEBUG
+
+spring:
+    application:
+        name: service-negationscope
+    devtools:
+        restart:
+            enabled: true
+        livereload:
+            enabled: true
+
 server:
     port: 8000
 

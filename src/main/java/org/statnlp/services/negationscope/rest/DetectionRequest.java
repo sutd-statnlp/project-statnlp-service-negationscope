@@ -1,6 +1,7 @@
 package org.statnlp.services.negationscope.rest;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 public class DetectionRequest implements Serializable {
     private String sentence;
@@ -28,5 +29,13 @@ public class DetectionRequest implements Serializable {
 
     public void setCues(String[] cues) {
         this.cues = cues;
+    }
+
+    @Override
+    public String toString() {
+        return "DetectionRequest{" +
+            "sentence='" + sentence + '\'' +
+            ", cues=" + Arrays.toString(cues) +
+            '}';
     }
 }
