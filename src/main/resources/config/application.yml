@@ -11,4 +11,9 @@ management:
     security:
         enabled: false
 
+async:
+    executor:
+        core-pool-size: 4
+        queue-capacity: 600
+        thread-prefix: StatNLP-
 

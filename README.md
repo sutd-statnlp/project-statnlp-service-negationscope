@@ -6,11 +6,6 @@
 [![](https://images.microbadger.com/badges/image/statnlp/service-negationscope.svg)](https://microbadger.com/images/statnlp/service-negationscope)
 [![JavaDoc](https://img.shields.io/badge/javadoc-API-blue.svg)](http://service-negationscope.statnlp.org/apidocs/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/sutd-statnlp/service-negationscope/blob/master/LICENSE)
-## Features
-- REST API and Swagger UI
-- Metrics and health check
-- CI with Travis
-- Docker Build
 
 ## Installation
 Install dependencies
