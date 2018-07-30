@@ -1,2 +1,4 @@
 org.statnlp.services.negationscope
 org.statnlp.services.negationscope.config
+org.statnlp.services.negationscope.rest
+org.statnlp.services.negationscope.service

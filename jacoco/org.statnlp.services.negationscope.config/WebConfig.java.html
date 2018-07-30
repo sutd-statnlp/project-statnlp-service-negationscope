@@ -2,9 +2,30 @@
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+
+import java.util.concurrent.Executor;
 
 @Configuration
-<span class="fc" id="L7">public class WebConfig {</span>
+@EnableAsync
+public class WebConfig {
 
+    private final Environment env;
+
+<span class="fc" id="L17">    public WebConfig(Environment env) {</span>
+<span class="fc" id="L18">        this.env = env;</span>
+<span class="fc" id="L19">    }</span>
+
+    @Bean
+    public Executor asyncExecutor() {
+<span class="fc" id="L23">        ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();</span>
+<span class="fc" id="L24">        executor.setCorePoolSize(env.getProperty(&quot;async.executor.core-pool-size&quot;,Integer.class));</span>
+<span class="fc" id="L25">        executor.setQueueCapacity(env.getProperty(&quot;async.executor.queue-capacity&quot;,Integer.class));</span>
+<span class="fc" id="L26">        executor.setThreadNamePrefix(env.getProperty(&quot;async.executor.thread-prefix&quot;));</span>
+<span class="fc" id="L27">        executor.initialize();</span>
+<span class="fc" id="L28">        return executor;</span>
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
