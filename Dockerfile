@@ -9,4 +9,4 @@ ADD /target/service-negationscope-*.war /app.war
 EXPOSE 8000
 CMD echo "The application will start in ${APP_SLEEP}s..." && \
     sleep ${APP_SLEEP} && \
-    java ${JAVA_OPTS} -Djava.security.egd=file:/dev/./urandom -jar /app.war
+    java ${JAVA_OPTS} -Dspring.profiles.active=prod -Djava.security.egd=file:/dev/./urandom -jar /app.war

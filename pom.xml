@@ -26,6 +26,20 @@
         <spring-boot-admin.version>1.5.6</spring-boot-admin.version>
         <maven-javadoc-plugin.version>3.0.0</maven-javadoc-plugin.version>
         <jacoco-maven-plugin.version>0.7.9</jacoco-maven-plugin.version>
+        <project.testresult.directory>${project.build.directory}/site</project.testresult.directory>
+        <sonar-maven-plugin.version>3.4.0.905</sonar-maven-plugin.version>
+
+        <!-- Sonar properties -->
+        <sonar.issue.ignore.multicriteria.S3437.resourceKey>src/main/java/**/*</sonar.issue.ignore.multicriteria.S3437.resourceKey>
+        <sonar.issue.ignore.multicriteria.S3437.ruleKey>squid:S3437</sonar.issue.ignore.multicriteria.S3437.ruleKey>
+        <sonar.issue.ignore.multicriteria.UndocumentedApi.resourceKey>src/main/java/**/*</sonar.issue.ignore.multicriteria.UndocumentedApi.resourceKey>
+        <sonar.issue.ignore.multicriteria.UndocumentedApi.ruleKey>squid:UndocumentedApi</sonar.issue.ignore.multicriteria.UndocumentedApi.ruleKey>
+        <sonar.jacoco.reportPaths>${project.testresult.directory}/coverage/jacoco/jacoco.exec</sonar.jacoco.reportPaths>
+        <sonar.java.codeCoveragePlugin>jacoco</sonar.java.codeCoveragePlugin>
+        <sonar.typescript.lcov.reportPaths>${project.testresult.directory}/lcov.info</sonar.typescript.lcov.reportPaths>
+        <sonar.sources>${project.basedir}/src/main/</sonar.sources>
+        <sonar.surefire.reportsPath>${project.testresult.directory}/surefire-reports</sonar.surefire.reportsPath>
+        <sonar.tests>${project.basedir}/src/test/</sonar.tests>
     </properties>
 
 	<repositories>
@@ -98,8 +112,20 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>${sonar-maven-plugin.version}</version>
+            </plugin>
 		</plugins>
 	</build>
-
-
+    <profiles>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <!-- default Spring profiles -->
+                <spring.profiles.active>prod</spring.profiles.active>
+            </properties>
+        </profile>
+    </profiles>
 </project>
