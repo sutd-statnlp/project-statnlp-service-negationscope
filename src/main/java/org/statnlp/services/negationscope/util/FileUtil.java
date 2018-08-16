@@ -1,18 +1,18 @@
 package org.statnlp.services.negationscope.util;
 
 import org.apache.logging.log4j.util.Strings;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.statnlp.services.negationscope.rest.DetectionRest;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.nio.file.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FileUtil {
-
     public static boolean  writeWordCueToFile(String[] words, String[] cues){
         Path path = Paths.get(ConstantUtil.INPUT_FILE_PATH);
         try (BufferedWriter writer = Files.newBufferedWriter(path))
@@ -44,10 +44,11 @@ public class FileUtil {
             List<Boolean> scopes = new ArrayList<>();
             String line;
             while ((line = reader.readLine()) != null) {
-                if (Strings.isEmpty(line)) {
+                String[] words = line.split("\t");
+                if (words.length < 2) {
                     continue;
                 }
-                boolean scope = line.split("\t")[2].equals("1");
+                boolean scope = words[2].equals("1");
                 scopes.add(scope);
             }
             reader.close();
@@ -57,5 +58,27 @@ public class FileUtil {
             return null;
         }
 
+    }
+
+    public static boolean watchFileChange (String fileName) {
+        final Path path = Paths.get("./");
+        try (final WatchService watchService = FileSystems.getDefault().newWatchService()) {
+            path.register(watchService, StandardWatchEventKinds.ENTRY_MODIFY);
+            while (true) {
+                final WatchKey wk = watchService.take();
+                for (WatchEvent<?> event : wk.pollEvents()) {
+                    final Path changed = (Path) event.context();
+                    if (changed.endsWith(fileName)) {
+                        return true;
+                    }
+                }
+                wk.reset();
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

@@ -1,5 +1,6 @@
 package org.statnlp.services.negationscope.config;
 
+import org.ns.negation.common.Negation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.servlet.ServletContextInitializer;
@@ -8,6 +9,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+import org.statnlp.services.negationscope.model.NegationDemoModel;
+import org.statnlp.services.negationscope.model.NegationModel;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -39,5 +42,10 @@ public class WebConfig implements ServletContextInitializer {
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
         log.info("Web application fully configured");
+    }
+
+    @Bean
+    public NegationModel negationModel() {
+        return new NegationDemoModel();
     }
 }
