@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.statnlp.services.negationscope.service.DetectionService;
 
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 @RestController
@@ -23,7 +24,7 @@ public class DetectionRest {
     }
 
     @PostMapping("/detect")
-    public boolean[] detect(@RequestBody DetectionRequest detectionRequest) throws ExecutionException, InterruptedException {
+    public List<Boolean> detect(@RequestBody DetectionRequest detectionRequest) throws ExecutionException, InterruptedException {
         log.debug("REST request to detect with DetectionRequest : {}", detectionRequest);
         return this.detectionService.detect(detectionRequest).get();
     }

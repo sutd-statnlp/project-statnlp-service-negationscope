@@ -1,0 +1,1 @@
+java -Xmx32g -Xms8g -jar nsdemo.jar  -modelname OIBAMN6 -thread 1 -skiptest false -skiptrain true -dataset cdsco -lang en -discrete true -discardintest false -syntax false -testrain false -outputsem2012 false -outputerror false -unipos true -modelfile OIBAMN6.model

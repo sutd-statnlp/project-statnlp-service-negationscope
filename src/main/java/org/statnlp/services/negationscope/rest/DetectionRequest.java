@@ -4,23 +4,26 @@ import java.io.Serializable;
 import java.util.Arrays;
 
 public class DetectionRequest implements Serializable {
-    private String sentence;
+
+    private static final long serialVersionUID = 1L;
+
+    private String[] words;
     private String[] cues;
 
     public DetectionRequest() {
     }
 
-    public DetectionRequest(String sentence, String[] cues) {
-        this.sentence = sentence;
+    public DetectionRequest(String[] words, String[] cues) {
+        this.words = words;
         this.cues = cues;
     }
 
-    public String getSentence() {
-        return sentence;
+    public String[] getWords() {
+        return words;
     }
 
-    public void setSentence(String sentence) {
-        this.sentence = sentence;
+    public void setWords(String[] words) {
+        this.words = words;
     }
 
     public String[] getCues() {
@@ -34,7 +37,7 @@ public class DetectionRequest implements Serializable {
     @Override
     public String toString() {
         return "DetectionRequest{" +
-            "sentence='" + sentence + '\'' +
+            "words=" + Arrays.toString(words) +
             ", cues=" + Arrays.toString(cues) +
             '}';
     }

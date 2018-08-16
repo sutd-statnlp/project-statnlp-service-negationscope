@@ -15,7 +15,7 @@ Install dependencies
 
 ```
 
-## Running the tests
+## Testing
 
 Run all tests
 
@@ -23,7 +23,12 @@ Run all tests
 ./mvnw test
 ```
 
-## Build
+## Build and Run
+
+Run app
+``` bash
+./mvnw spring-boot:run
+```
 
 Build package
 ``` bash

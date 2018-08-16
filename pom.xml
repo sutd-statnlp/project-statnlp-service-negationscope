@@ -80,6 +80,13 @@
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${springfox-swagger2.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.ns</groupId>
+            <artifactId>negationscope</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/nsdemo.jar</systemPath>
+        </dependency>
     </dependencies>
 
 	<build>
